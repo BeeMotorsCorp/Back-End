@@ -9,9 +9,7 @@ header('Content-Type: application/json; charset=utf-8');
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit();
-}
-
-// ==================== CONFIGURAÇÃO DO BANCO ====================
+} 
 // Verifica se o arquivo de conexão existe
 if (!file_exists("conexao.php")) {
     echo json_encode([
@@ -198,7 +196,6 @@ function uploadImagem($arquivo) {
 }
 
 // ==================== ROTEAMENTO ====================
-$database = new Database();
 $db = $database->connect();
 $produto = new Produto($db);
 
